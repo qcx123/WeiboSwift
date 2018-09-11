@@ -9,6 +9,11 @@
 import UIKit
 
 class WBBaseViewController: UIViewController {
+    
+    // 表哥视图 - 如果没有登录，就不创建
+    var tableView : UITableView?
+    
+    
     // 自定义导航条
     lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: UIScreen.main.screenW, height: 44))
     // 自定义导航条目
@@ -33,8 +38,16 @@ class WBBaseViewController: UIViewController {
 extension WBBaseViewController {
     
     @objc func setupUI() {
-//        navigationBar.setTitleVerticalPositionAdjustment(20, for: .default)
-//        navigationBar.titleVerticalPositionAdjustment(for: .compactPrompt)
+        setupNavigationBar()
+        setupTableView()
+    }
+    
+    private func setupTableView() {
+        tableView = UITableView(frame: view.bounds, style: .plain)
+        view.insertSubview(tableView!, belowSubview: navigationBar)
+    }
+    
+    private func setupNavigationBar() {
         // 添加导航条
         view.addSubview(navigationBar)
         // 将item设置给bar
