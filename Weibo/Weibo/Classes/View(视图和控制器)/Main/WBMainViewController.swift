@@ -10,11 +10,21 @@ import UIKit
 
 class WBMainViewController: UITabBarController {
 
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        appDelegate.blockRotation = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupChildControllers()
         setupComposeButton()
+        
+        
+        
     }
     
     private lazy var composeBtn : UIButton = UIButton.init(imageName: "tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
@@ -23,6 +33,8 @@ class WBMainViewController: UITabBarController {
     @objc private func composeBtnClick() {
         print("撰写微博")
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
