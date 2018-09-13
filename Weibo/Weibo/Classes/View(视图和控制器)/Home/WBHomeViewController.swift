@@ -25,9 +25,21 @@ class WBHomeViewController: WBBaseViewController {
 //    }
 
     override func loadData() {
-        for i in 0..<100 {
-            stateList.insert(i.description, at: 0)
+        
+        // 模拟延时加载数据 -> dispatch_after
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            for i in 0..<10 {
+                self.stateList.insert(i.description, at: 0)
+            }
+            
+            // 结束刷新
+            self.refreshControl?.endRefreshing()
+            
+            // 刷新
+            self.tableView?.reloadData()
         }
+        
+        
     }
     
     @objc private func showFriends() {
