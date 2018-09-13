@@ -43,7 +43,8 @@ class WBBaseViewController: UIViewController {
     }
 
     @objc func loadData() {
-        
+        // 如果子类不重写这个方法，默认关闭刷新控件
+        refreshControl?.endRefreshing()
     }
     
     override var title: String? {
