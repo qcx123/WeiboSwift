@@ -29,12 +29,17 @@ class WBHomeViewController: WBBaseViewController {
         // 模拟延时加载数据 -> dispatch_after
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             for i in 0..<10 {
-                self.stateList.insert(i.description, at: 0)
+                if self.isPullup {// 上拉
+                    self.stateList.append("上拉 \(i)")
+                }else{
+                    self.stateList.insert(i.description, at: 0)
+                }
             }
             
             // 结束刷新
             self.refreshControl?.endRefreshing()
-            
+            // 恢复上拉刷新标记
+            self.isPullup = false
             // 刷新
             self.tableView?.reloadData()
         }
