@@ -17,14 +17,14 @@ class WBHomeViewController: WBBaseViewController {
 
     private lazy var stateList = [String]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = UIColor.cyan
-        setupUI()
-        loadData()
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        view.backgroundColor = UIColor.cyan
+//        setupUI()
+//        loadData()
+//    }
 
-    func loadData() {
+    override func loadData() {
         for i in 0..<100 {
             stateList.insert(i.description, at: 0)
         }

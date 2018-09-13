@@ -22,6 +22,8 @@ class WBBaseViewController: UIViewController {
     // 表哥视图 - 如果没有登录，就不创建
     var tableView : UITableView?
     
+    var refreshControl : UIRefreshControl?
+    
     
     // 自定义导航条
     lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: UIScreen.main.screenW, height: 44))
@@ -30,10 +32,16 @@ class WBBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupUI()
+        loadData()
         // Do any additional setup after loading the view.
     }
 
+    @objc func loadData() {
+        
+    }
+    
     override var title: String? {
         didSet{
             navItem.title = title
@@ -62,7 +70,20 @@ extension WBBaseViewController {
         tableView?.dataSource = self
         tableView?.delegate = self
         
+        // 设置内容缩进
         tableView?.contentInset = UIEdgeInsets(top: navigationBar.bounds.height, left: 0, bottom: 0, right: 0)
+        
+        
+        // 设置刷新控件
+        // 1> 实例化控件
+        refreshControl = UIRefreshControl()
+        
+        // 2> 添加到表哥视图
+        tableView?.addSubview(refreshControl!)
+        
+        // 3> 添加监听事件
+        refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        
     }
     
     private func setupNavigationBar() {
