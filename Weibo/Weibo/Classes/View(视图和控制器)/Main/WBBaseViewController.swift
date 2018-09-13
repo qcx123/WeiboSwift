@@ -22,7 +22,11 @@ class WBBaseViewController: UIViewController {
     // 表哥视图 - 如果没有登录，就不创建
     var tableView : UITableView?
     
+    // 下拉刷新
     var refreshControl : UIRefreshControl?
+    
+    // 上拉刷新标记
+    var isPullup = false
     
     
     // 自定义导航条
@@ -113,4 +117,23 @@ extension WBBaseViewController: UITableViewDataSource, UITableViewDelegate {
         return UITableViewCell()
     }
     
+    // 在显示最后一行的时候，做上拉刷新
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        // 1.判断indexPath是否是最后一行
+        let row = indexPath.row
+        let section = tableView.numberOfSections - 1
+        
+        if row < 0 || section < 0 {
+            return
+        }
+        
+        // 行数
+        let count = tableView.numberOfRows(inSection: section)
+        
+        if row == (count - 1) && !isPullup {
+            // 上啦刷新
+            print("上拉刷新")
+        }
+    }
 }
