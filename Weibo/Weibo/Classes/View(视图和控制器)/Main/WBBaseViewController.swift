@@ -47,6 +47,10 @@ class WBBaseViewController: UIViewController {
 extension WBBaseViewController {
     
     @objc func setupUI() {
+        
+        // 取消自动缩进 如果隐藏了导航栏，会缩进 20 个点
+        automaticallyAdjustsScrollViewInsets = false
+        
         setupNavigationBar()
         setupTableView()
     }
@@ -57,6 +61,8 @@ extension WBBaseViewController {
         // 设置数据源&代理 目的：子类直接实现数据源方法
         tableView?.dataSource = self
         tableView?.delegate = self
+        
+        tableView?.contentInset = UIEdgeInsets(top: navigationBar.bounds.height, left: 0, bottom: 0, right: 0)
     }
     
     private func setupNavigationBar() {

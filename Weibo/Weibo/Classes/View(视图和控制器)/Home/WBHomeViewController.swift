@@ -25,7 +25,7 @@ class WBHomeViewController: WBBaseViewController {
     }
 
     func loadData() {
-        for i in 1..<10 {
+        for i in 0..<100 {
             stateList.insert(i.description, at: 0)
         }
     }
