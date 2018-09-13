@@ -11,6 +11,8 @@ import UIKit
 // 定义全局常量，尽量使用 private 修饰，否则到处都可以访问
 private let cellId = "cellId"
 
+// 恢复
+
 class WBHomeViewController: WBBaseViewController {
 
     private lazy var stateList = [String]()
