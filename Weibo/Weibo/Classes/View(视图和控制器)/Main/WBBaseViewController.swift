@@ -19,6 +19,9 @@ import UIKit
 
 class WBBaseViewController: UIViewController {
 
+    var userLogon = true
+    
+    
     // 表哥视图 - 如果没有登录，就不创建
     var tableView : UITableView?
     
@@ -65,7 +68,7 @@ extension WBBaseViewController {
         automaticallyAdjustsScrollViewInsets = false
         
         setupNavigationBar()
-        setupTableView()
+        userLogon ? setupTableView() : setupVisitorView()
     }
     
     private func setupTableView() {
@@ -89,6 +92,12 @@ extension WBBaseViewController {
         // 3> 添加监听事件
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
         
+    }
+    
+    private func setupVisitorView() {
+        let visitorView = UIView(frame: view.bounds)
+        visitorView.backgroundColor = UIColor.white
+        self.view.insertSubview(visitorView, belowSubview: navigationBar)
     }
     
     private func setupNavigationBar() {
