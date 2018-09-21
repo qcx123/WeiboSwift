@@ -23,6 +23,7 @@
 		4461F691213FF2700051E942 /* UIScreen+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461F690213FF2700051E942 /* UIScreen+Extentions.swift */; };
 		4461F6942140C8CF0051E942 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4461F6932140C8CF0051E942 /* UIColor+Extension.m */; };
 		4461F696214102560051E942 /* WBDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461F695214102560051E942 /* WBDemoViewController.swift */; };
+		4461F6B621549DFE0051E942 /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461F6B521549DFE0051E942 /* WBVisitorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		4461F6922140C8CF0051E942 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
 		4461F6932140C8CF0051E942 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		4461F695214102560051E942 /* WBDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDemoViewController.swift; sourceTree = "<group>"; };
+		4461F6B521549DFE0051E942 /* WBVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,8 +148,8 @@
 		4461F62F213E793A0051E942 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				4461F633213E799A0051E942 /* WBMainViewController.swift */,
-				4461F635213E79CE0051E942 /* WBNavigationController.swift */,
+				4461F6B821549E2B0051E942 /* 主控制器 */,
+				4461F6B921549E3D0051E942 /* VisitorVIew */,
 				4461F637213E79FB0051E942 /* WBBaseViewController.swift */,
 			);
 			path = Main;
@@ -181,6 +183,23 @@
 				4461F690213FF2700051E942 /* UIScreen+Extentions.swift */,
 			);
 			path = "Tools(工具)";
+			sourceTree = "<group>";
+		};
+		4461F6B821549E2B0051E942 /* 主控制器 */ = {
+			isa = PBXGroup;
+			children = (
+				4461F633213E799A0051E942 /* WBMainViewController.swift */,
+				4461F635213E79CE0051E942 /* WBNavigationController.swift */,
+			);
+			path = "主控制器";
+			sourceTree = "<group>";
+		};
+		4461F6B921549E3D0051E942 /* VisitorVIew */ = {
+			isa = PBXGroup;
+			children = (
+				4461F6B521549DFE0051E942 /* WBVisitorView.swift */,
+			);
+			path = VisitorVIew;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +275,7 @@
 			files = (
 				4461F68F213FEEBC0051E942 /* UIBarButtonItem+Extensions.swift in Sources */,
 				4461F638213E79FB0051E942 /* WBBaseViewController.swift in Sources */,
+				4461F6B621549DFE0051E942 /* WBVisitorView.swift in Sources */,
 				4461F640213E7B100051E942 /* WBProfileViewController.swift in Sources */,
 				4461F6942140C8CF0051E942 /* UIColor+Extension.m in Sources */,
 				4461F63E213E7AFF0051E942 /* WBDiscoverViewController.swift in Sources */,
