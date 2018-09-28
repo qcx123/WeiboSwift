@@ -35,4 +35,13 @@ extension UIButton
         // 4.调整按钮尺寸
         sizeToFit()
     }
+    
+    convenience init(text: String, fontSize: CGFloat, normalColor: UIColor, hightLightedColor: UIColor, backgroundImageName: String) {
+        self.init()
+        setTitle(text, for: .normal)
+        self.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
+        setTitleColor(normalColor, for: .normal)
+        setTitleColor(hightLightedColor, for: .highlighted)
+        setBackgroundImage(UIImage.init(named: backgroundImageName), for: .normal)
+    }
 }

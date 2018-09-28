@@ -24,6 +24,7 @@
 		4461F6942140C8CF0051E942 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4461F6932140C8CF0051E942 /* UIColor+Extension.m */; };
 		4461F696214102560051E942 /* WBDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461F695214102560051E942 /* WBDemoViewController.swift */; };
 		4461F6B621549DFE0051E942 /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461F6B521549DFE0051E942 /* WBVisitorView.swift */; };
+		4461F6BB215C76790051E942 /* UILabel+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461F6BA215C76790051E942 /* UILabel+Extentions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		4461F6932140C8CF0051E942 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		4461F695214102560051E942 /* WBDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDemoViewController.swift; sourceTree = "<group>"; };
 		4461F6B521549DFE0051E942 /* WBVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
+		4461F6BA215C76790051E942 /* UILabel+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extentions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				4461F688213E90060051E942 /* Bundle+Extentions.swift */,
 				4461F68E213FEEBC0051E942 /* UIBarButtonItem+Extensions.swift */,
 				4461F690213FF2700051E942 /* UIScreen+Extentions.swift */,
+				4461F6BA215C76790051E942 /* UILabel+Extentions.swift */,
 			);
 			path = "Tools(工具)";
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				4461F67B213E81BC0051E942 /* UIView+Frame.m in Sources */,
 				4461F63A213E7A790051E942 /* WBHomeViewController.swift in Sources */,
 				4461F689213E90060051E942 /* Bundle+Extentions.swift in Sources */,
+				4461F6BB215C76790051E942 /* UILabel+Extentions.swift in Sources */,
 				4461F691213FF2700051E942 /* UIScreen+Extentions.swift in Sources */,
 				4461F618213E76800051E942 /* AppDelegate.swift in Sources */,
 				4461F696214102560051E942 /* WBDemoViewController.swift in Sources */,
