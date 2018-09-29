@@ -36,5 +36,49 @@ class WBVisitorView: UIView {
 extension WBVisitorView {
     func setupUI() {
         backgroundColor = UIColor.white
+        
+        // 1.添加控件
+        addSubview(iconView)
+        addSubview(houseView)
+        addSubview(tipLabel)
+        addSubview(registerButton)
+        addSubview(loginButton)
+        
+        // 2.取消autoresizing
+        for v in subviews {
+            v.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        // 3.自动布局
+        // 1> 图像视图
+        addConstraint(NSLayoutConstraint(item: iconView,
+                                         attribute: .centerX,
+                                         relatedBy: .equal,
+                                         toItem: self,
+                                         attribute: .centerX,
+                                         multiplier: 1.0,
+                                         constant: 0))
+        addConstraint(NSLayoutConstraint(item: iconView,
+                                         attribute: .centerY,
+                                         relatedBy: .equal,
+                                         toItem: self,
+                                         attribute: .centerY,
+                                         multiplier: 1.0,
+                                         constant: -60))
+        // 2> 小房子
+        addConstraint(NSLayoutConstraint(item: houseView,
+                                         attribute: .centerX,
+                                         relatedBy: .equal,
+                                         toItem: iconView,
+                                         attribute: .centerX,
+                                         multiplier: 1.0,
+                                         constant: 0))
+        addConstraint(NSLayoutConstraint(item: houseView,
+                                         attribute: .centerY,
+                                         relatedBy: .equal,
+                                         toItem: iconView,
+                                         attribute: .centerY,
+                                         multiplier: 1.0,
+                                         constant: 0))
     }
 }

@@ -19,7 +19,7 @@ import UIKit
 
 class WBBaseViewController: UIViewController {
 
-    var userLogon = true
+    var userLogon = false
     
     
     // 表哥视图 - 如果没有登录，就不创建
