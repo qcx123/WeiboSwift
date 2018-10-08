@@ -10,6 +10,23 @@ import UIKit
 
 class WBVisitorView: UIView {
 
+    // 访客视图的信息字典 [imageName / message]
+    // 如果首页 imageName = “”
+    var visitorInfo : [String : String]? {
+        didSet {
+            guard let imageName = visitorInfo?["imageName"], let message = visitorInfo?["message"] else{
+                return
+            }
+            tipLabel.text = message
+            if imageName == "" {
+                return
+            }
+            iconView.image = UIImage(named: imageName)
+        }
+    }
+    
+    
+// MARK: - 构造函数
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
