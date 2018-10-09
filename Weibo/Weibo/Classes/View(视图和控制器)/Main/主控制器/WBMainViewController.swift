@@ -67,7 +67,7 @@ extension WBMainViewController {
     // 设置所有自控制器
     private func setupChildControllers() {
         let array = [
-            ["clsName" : "WBHomeViewController", "title" : "首页", "imageName" : "home"],
+            ["clsName" : "WBHomeViewController", "title" : "首页", "imageName" : "home", "visitorInfo" : ["imageName" : "", "message" : "哈哈"]],
             ["clsName" : "WBMessageViewController", "title" : "消息", "imageName" : "message_center"],
             ["clsName" : "UIViewController"],
             ["clsName" : "WBDiscoverViewController", "title" : "发现", "imageName" : "discover"],
@@ -76,7 +76,7 @@ extension WBMainViewController {
         
         var arrayM = [UIViewController]()
         for dict in array {
-            arrayM.append(controller(dict: dict))
+            arrayM.append(controller(dict: dict as [String : AnyObject]))
         }
         
         viewControllers = arrayM
@@ -85,11 +85,11 @@ extension WBMainViewController {
     ///
     /// - Parameter dict: 信息字典[clsName, title, imageName]
     /// - Returns: 子控制器
-    private func controller(dict : [String : String]) -> UIViewController {
+    private func controller(dict : [String : AnyObject]) -> UIViewController {
         // 1.取字典内容
-        guard let clsName = dict["clsName"],
-            let title = dict["title"],
-            let imageName = dict["imageName"],
+        guard let clsName = dict["clsName"] as? String,
+            let title = dict["title"] as? String,
+            let imageName = dict["imageName"] as? String,
             let cls = NSClassFromString(Bundle.main.nameSpace + "." + clsName) as? UIViewController.Type
         else {
             

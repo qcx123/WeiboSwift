@@ -20,6 +20,7 @@ import UIKit
 class WBBaseViewController: UIViewController {
 
     var userLogon = false
+    var visitorInfo : [String : String]?
     
     
     // 表哥视图 - 如果没有登录，就不创建
@@ -97,6 +98,8 @@ extension WBBaseViewController {
     private func setupVisitorView() {
         let visitorView = WBVisitorView(frame: view.bounds)
         self.view.insertSubview(visitorView, belowSubview: navigationBar)
+        // 根据字典设置访客视图
+        visitorView.visitorInfo = visitorInfo
     }
     
     private func setupNavigationBar() {
