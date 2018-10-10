@@ -12,7 +12,9 @@ extension UILabel {
     convenience init(text : String, fontSize: CGFloat, color: UIColor) {
         self.init()
         self.text = text
-        self.font = UIFont.systemFont(ofSize: fontSize)
-        self.textColor = color
+        font = UIFont.systemFont(ofSize: fontSize)
+        textColor = color
+        numberOfLines = 0
+        textAlignment = .center
     }
 }
