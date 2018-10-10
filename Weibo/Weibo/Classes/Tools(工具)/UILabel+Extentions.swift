@@ -15,6 +15,5 @@ extension UILabel {
         font = UIFont.systemFont(ofSize: fontSize)
         textColor = color
         numberOfLines = 0
-        textAlignment = .center
     }
 }
