@@ -19,6 +19,7 @@ class WBVisitorView: UIView {
             }
             tipLabel.text = message
             if imageName == "" {
+                startAnimation()
                 return
             }
             iconView.image = UIImage(named: imageName)
@@ -37,6 +38,21 @@ class WBVisitorView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // 旋转图标动画 (首页)
+    private func startAnimation() {
+        let anim = CABasicAnimation(keyPath: "transform.rotation")
+        anim.toValue = 2 * M_PI
+        anim.repeatCount = MAXFLOAT
+        anim.duration = 15
+        
+        // 动画运行结束不删除 如果iconView被释放，动画会一起被销毁
+        // 在设置连续播放的动画非常有用
+        anim.isRemovedOnCompletion = false
+        
+        // 将动画添加到图层
+        iconView.layer.add(anim, forKey: nil)
     }
     
     
