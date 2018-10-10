@@ -43,8 +43,8 @@ class WBVisitorView: UIView {
     // 旋转图标动画 (首页)
     private func startAnimation() {
         let anim = CABasicAnimation(keyPath: "transform.rotation")
-        anim.toValue = 2 * M_PI
-        anim.repeatCount = MAXFLOAT
+        anim.toValue = 2 * M_PI     //2派
+        anim.repeatCount = MAXFLOAT // 重复
         anim.duration = 15
         
         // 动画运行结束不删除 如果iconView被释放，动画会一起被销毁
