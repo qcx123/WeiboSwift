@@ -19,7 +19,7 @@ import UIKit
 
 class WBBaseViewController: UIViewController {
 
-    var userLogon = false
+    var userLogon = true
     var visitorInfo : [String : String]?
     
     
@@ -73,7 +73,7 @@ extension WBBaseViewController {
 // MARK: - 设置界面
 extension WBBaseViewController {
     
-    @objc func setupUI() {
+    private func setupUI() {
         
         // 取消自动缩进 如果隐藏了导航栏，会缩进 20 个点
         automaticallyAdjustsScrollViewInsets = false
@@ -82,7 +82,7 @@ extension WBBaseViewController {
         userLogon ? setupTableView() : setupVisitorView()
     }
     
-    private func setupTableView() {
+    @objc func setupTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
         view.insertSubview(tableView!, belowSubview: navigationBar)
         // 设置数据源&代理 目的：子类直接实现数据源方法
@@ -108,10 +108,16 @@ extension WBBaseViewController {
     private func setupVisitorView() {
         let visitorView = WBVisitorView(frame: view.bounds)
         self.view.insertSubview(visitorView, belowSubview: navigationBar)
-        // 根据字典设置访客视图
+        // 1、根据字典设置访客视图
         visitorView.visitorInfo = visitorInfo
+        
+        // 2、添加访客视图按钮点击事件
         visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
+        
+        // 3、设置导航条按钮
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(register))
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(login))
     }
     
     private func setupNavigationBar() {

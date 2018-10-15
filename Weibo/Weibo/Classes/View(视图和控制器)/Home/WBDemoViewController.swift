@@ -13,7 +13,7 @@ class WBDemoViewController: WBBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.green
-        setupUI()
+        setupTableView()
     }
     
     @objc private func showFriends() {
@@ -44,8 +44,8 @@ class WBDemoViewController: WBBaseViewController {
 // MARK: - 设置界面
 extension WBDemoViewController {
     
-    override func setupUI() {
-        super.setupUI()
+    override func setupTableView() {
+        super.setupTableView()
         // 设置导航栏按钮
         navItem.rightBarButtonItem = UIBarButtonItem(title: "下一页", fontSize: 12, target: self, action: #selector(showFriends))
     }
