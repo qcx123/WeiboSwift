@@ -19,7 +19,7 @@ import UIKit
 
 class WBBaseViewController: UIViewController {
 
-    var userLogon = true
+    var userLogon = false
     var visitorInfo : [String : String]?
     
     
@@ -126,10 +126,13 @@ extension WBBaseViewController {
         // 将item设置给bar
         navigationBar.items = [navItem]
         // 设置navBar的渲染颜色
+        // 设置整个背景的颜色
         navigationBar.barTintColor = UIColor(hexString: "0xF6F6F6")
         navigationBar.backgroundColor = UIColor(hexString: "0xF6F6F6")
         // navbar字体颜色
         navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.darkGray]
+        // 设置系统颜色的文字渲染颜色
+        navigationBar.tintColor = UIColor.orange
     }
     
 }
