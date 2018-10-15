@@ -67,20 +67,31 @@ extension WBMainViewController {
     // 设置所有自控制器
     private func setupChildControllers() {
         
+        // 0.获取沙盒的json路径
+        let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let jsonPath = (docDir as NSString).appendingPathComponent("main.json")
+        var data = NSData(contentsOfFile: jsonPath)
+        
+        // 判断data有没有内容
+        if data == nil {
+            // 从bundle加载
+            let path = Bundle.main.path(forResource: "main.json", ofType: nil)
+            data = NSData(contentsOfFile: path!)
+            
+        }
+        
         // 从bundle加载配置json
         // 1.路径
         // 2.加载NSData
         // 3.反序列化
-        guard let path = Bundle.main.path(forResource: "main.json", ofType: nil),
-            let data = NSData(contentsOfFile: path),
-            let array = try? JSONSerialization.jsonObject(with: data as Data, options: []) as! [[String : AnyObject]]
+        guard let array = try? JSONSerialization.jsonObject(with: data! as Data, options: []) as? [[String : AnyObject]]
             else {
             return
         }
         
         // 遍历数组，循环创建控制器数组
         var arrayM = [UIViewController]()
-        for dict in array {
+        for dict in array! {
             arrayM.append(controller(dict: dict as [String : AnyObject]))
         }
         
