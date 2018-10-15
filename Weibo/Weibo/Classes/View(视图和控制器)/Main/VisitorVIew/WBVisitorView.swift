@@ -66,9 +66,9 @@ class WBVisitorView: UIView {
     // 提示标签
     private lazy var tipLabel = UILabel.init(text: "sdhjafkbhdsajbvhfjdakvbhjfda", fontSize: 14, color: UIColor.darkGray)
     // 注册按钮
-    private lazy var registerButton = UIButton.init(text: "注册", fontSize: 16, normalColor: UIColor.orange, hightLightedColor: UIColor.black, backgroundImageName: "common_button_white_disable")
+    lazy var registerButton = UIButton.init(text: "注册", fontSize: 16, normalColor: UIColor.orange, hightLightedColor: UIColor.black, backgroundImageName: "common_button_white_disable")
     // 登录按钮
-    private lazy var loginButton = UIButton.init(text: "登录", fontSize: 16, normalColor: UIColor.darkGray, hightLightedColor: UIColor.black, backgroundImageName: "common_button_white_disable")
+    lazy var loginButton = UIButton.init(text: "登录", fontSize: 16, normalColor: UIColor.darkGray, hightLightedColor: UIColor.black, backgroundImageName: "common_button_white_disable")
 }
 
 extension WBVisitorView {

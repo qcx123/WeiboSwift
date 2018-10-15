@@ -59,6 +59,16 @@ class WBBaseViewController: UIViewController {
     
 }
 
+extension WBBaseViewController {
+    
+    @objc private func login() {
+        print("用户登录")
+    }
+    
+    @objc private func register() {
+        print("用户注册")
+    }
+}
 
 // MARK: - 设置界面
 extension WBBaseViewController {
@@ -100,6 +110,8 @@ extension WBBaseViewController {
         self.view.insertSubview(visitorView, belowSubview: navigationBar)
         // 根据字典设置访客视图
         visitorView.visitorInfo = visitorInfo
+        visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
     }
     
     private func setupNavigationBar() {
