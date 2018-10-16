@@ -28,6 +28,7 @@
 		44C6F047217495C8009FA80C /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6F03E217495C8009FA80C /* UIBarButtonItem+Extensions.swift */; };
 		44C6F048217495C8009FA80C /* Bundle+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6F03F217495C8009FA80C /* Bundle+Extentions.swift */; };
 		44C6F049217495C8009FA80C /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6F040217495C8009FA80C /* UIColor+Extension.m */; };
+		44FFA68F2175D4AC00D58A6E /* WBNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FFA68E2175D4AC00D58A6E /* WBNetworkManager+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		44C6F03F217495C8009FA80C /* Bundle+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extentions.swift"; sourceTree = "<group>"; };
 		44C6F040217495C8009FA80C /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		44C6F042217495C8009FA80C /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		44FFA68E2175D4AC00D58A6E /* WBNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WBNetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		9DE1D2DCAC45376B46968A10 /* Pods-Weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				441C6466217496CD0060CF75 /* WBNetworkManager.swift */,
+				44FFA68E2175D4AC00D58A6E /* WBNetworkManager+Extension.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				44C6F044217495C8009FA80C /* UIButton+Extension.swift in Sources */,
 				44C6F048217495C8009FA80C /* Bundle+Extentions.swift in Sources */,
 				44C6F046217495C8009FA80C /* UILabel+Extentions.swift in Sources */,
+				44FFA68F2175D4AC00D58A6E /* WBNetworkManager+Extension.swift in Sources */,
 				441C6467217496CD0060CF75 /* WBNetworkManager.swift in Sources */,
 				4461F634213E799A0051E942 /* WBMainViewController.swift in Sources */,
 				4461F63A213E7A790051E942 /* WBHomeViewController.swift in Sources */,

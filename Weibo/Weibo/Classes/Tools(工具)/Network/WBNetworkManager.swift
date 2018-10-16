@@ -26,7 +26,7 @@ class WBNetworkManager: AFHTTPSessionManager {
     
     /// 使用afn封装GET/POST请求
     ///
-    /// - Parameters:
+    ///   - Parameters:
     ///   - method: GET / POST
     ///   - URLString: url
     ///   - parameters: 参数字典
