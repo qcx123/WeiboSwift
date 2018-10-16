@@ -19,7 +19,7 @@ extension WBNetworkManager {
     func statusList(completion:@escaping (_ list: [[String :AnyObject]]?,_ isSuccess: Bool)->()) {
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
         
-        tokenRequest(URLString: urlString, parameters: [:]) { (json, isSuccess) in
+        tokenRequest(URLString: urlString, parameters: nil) { (json, isSuccess) in
             // 从json获取statuses数组，如果失败就是nil
             let result = json?["statuses"] as? [[String : AnyObject]]
             

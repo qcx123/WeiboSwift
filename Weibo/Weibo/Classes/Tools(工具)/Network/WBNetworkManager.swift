@@ -24,14 +24,16 @@ class WBNetworkManager: AFHTTPSessionManager {
     static let shared = WBNetworkManager()
     
     // 访问令牌，所有网络请求都要用到（登录除外）
+    // 访问令牌有时限,g过期后服务器返回的是403
     var accessToken : String? = "2.00x4d2dF0eUCYR60b0914887sYRpWC"
     
     // 专门拼接 token 的网络请求方法
-    func tokenRequest(method: WBHTTPMethod = .GET, URLString: String, parameters: [String : AnyObject], completion: @escaping (_ json: AnyObject?, _ isSuccess: Bool) -> Void) {
+    func tokenRequest(method: WBHTTPMethod = .GET, URLString: String, parameters: [String : AnyObject]?, completion: @escaping (_ json: AnyObject?, _ isSuccess: Bool) -> Void) {
         
         // 处理token
         // 0> 判断token是否为nil
         guard let token = accessToken else {
+            // FIXME: 发送通知
             print("没有token，需要登录")
             completion(nil, false)
             return
@@ -44,10 +46,10 @@ class WBNetworkManager: AFHTTPSessionManager {
         }
         
         // 2> 设置参数字典，代码在此处，parameters一定有值
-        parameters["access_token"] = token as AnyObject
+        parameters!["access_token"] = token as AnyObject
         
         // 调用request发起真正的请求
-        request(URLString: URLString, parameters: parameters, completion: completion)
+        request(URLString: URLString, parameters: parameters!, completion: completion)
     }
     
     /// 使用afn封装GET/POST请求
@@ -64,6 +66,10 @@ class WBNetworkManager: AFHTTPSessionManager {
         }
 
         let failure = {(task: URLSessionDataTask?, error: Error)->() in
+            if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
+                print("token过期了")
+                // FIXME: 发送通知 提醒用户再次登陆
+            }
             print(error)
             completion(nil,false)
         }
