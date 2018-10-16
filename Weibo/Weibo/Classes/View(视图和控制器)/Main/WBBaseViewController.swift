@@ -19,7 +19,7 @@ import UIKit
 
 class WBBaseViewController: UIViewController {
 
-    var userLogon = false
+    var userLogon = true
     var visitorInfo : [String : String]?
     
     

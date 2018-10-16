@@ -15,31 +15,11 @@ private let cellId = "cellId"
 
 class WBHomeViewController: WBBaseViewController {
 
-    private lazy var stateList = [String]()
-    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        view.backgroundColor = UIColor.cyan
-//        setupUI()
-//        loadData()
-//    }
+    private lazy var listViewModel = WBStatusListViewModel()
 
     override func loadData() {
         
-        WBNetworkManager.shared.statusList { (list, isSuccess) in
-            print(list)
-        }
-        
-        // 模拟延时加载数据 -> dispatch_after
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-            for i in 0..<10 {
-                if self.isPullup {// 上拉
-                    self.stateList.append("上拉 \(i)")
-                }else{
-                    self.stateList.insert(i.description, at: 0)
-                }
-            }
-            
+        listViewModel.loadStatus { (isSuccess) in
             // 结束刷新
             self.refreshControl?.endRefreshing()
             // 恢复上拉刷新标记
@@ -47,8 +27,6 @@ class WBHomeViewController: WBBaseViewController {
             // 刷新
             self.tableView?.reloadData()
         }
-        
-        
     }
     
     @objc private func showFriends() {
@@ -69,12 +47,12 @@ class WBHomeViewController: WBBaseViewController {
 extension WBHomeViewController {
     
     override  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stateList.count
+        return listViewModel.statusList.count
     }
 
     override  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        cell.textLabel?.text = stateList[indexPath.row]
+        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
         
         return cell
     }

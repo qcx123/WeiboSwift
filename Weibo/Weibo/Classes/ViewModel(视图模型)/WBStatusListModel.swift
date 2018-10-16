@@ -1,5 +1,5 @@
 //
-//  WBStatusList.swift
+//  WBStatusListModel.swift
 //  Weibo
 //
 //  Created by 乔春晓 on 2018/10/16.
@@ -25,8 +25,7 @@ import Foundation
 class WBStatusListViewModel {
     
     // 微博模型数组懒加载
-    lazy var statusList = [WBStatus]()
-    
+    @objc lazy var statusList = [WBStatus]()
     
     
     /// 加载微博列表
