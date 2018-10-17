@@ -26,6 +26,8 @@ class WBNetworkManager: AFHTTPSessionManager {
     // 访问令牌，所有网络请求都要用到（登录除外）
     // 访问令牌有时限,g过期后服务器返回的是403
     var accessToken : String? = "2.00x4d2dF0eUCYR60b0914887sYRpWC"
+    // 用户微博id
+    var uid: String? = "5162097553"
     
     // 专门拼接 token 的网络请求方法
     func tokenRequest(method: WBHTTPMethod = .GET, URLString: String, parameters: [String : AnyObject]?, completion: @escaping (_ json: AnyObject?, _ isSuccess: Bool) -> Void) {
