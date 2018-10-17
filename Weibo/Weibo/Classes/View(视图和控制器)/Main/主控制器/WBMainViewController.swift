@@ -12,6 +12,9 @@ class WBMainViewController: UITabBarController {
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    // 定时器
+    private var timer: Timer?
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         appDelegate.blockRotation = true
@@ -22,12 +25,13 @@ class WBMainViewController: UITabBarController {
         
         setupChildControllers()
         setupComposeButton()
+        setupTimer()
         
-        // 测试未读数量
-        WBNetworkManager.shared.unreadCount { (count) in
-            print("有\(count)条未读消息")
-        }
-        
+    }
+    
+    deinit {
+        // 销毁时钟
+        timer?.invalidate()
     }
     
     private lazy var composeBtn : UIButton = UIButton.init(imageName: "tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
@@ -46,6 +50,23 @@ class WBMainViewController: UITabBarController {
     
 }
 
+
+// MARK: - 时钟相关方法
+extension WBMainViewController {
+    // 定义时钟
+    private func setupTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func updateTimer() {
+        // 未读数量
+        WBNetworkManager.shared.unreadCount { (count) in
+            print("有\(count)条未读消息")
+            // 设置首页tabbarItems的badgeNumber
+            self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
+        }
+    }
+}
 
 // extension 类似于 OC 中的分类， 在Swift 中还可以用来切粉代码块
 // 可以把相近功能的函数 放在一个extension中
