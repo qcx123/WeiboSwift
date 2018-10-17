@@ -19,7 +19,7 @@ class WBHomeViewController: WBBaseViewController {
 
     override func loadData() {
         
-        listViewModel.loadStatus { (isSuccess) in
+        listViewModel.loadStatus(pullup: self.isPullup) { (isSuccess) in
             // 结束刷新
             self.refreshControl?.endRefreshing()
             // 恢复上拉刷新标记
