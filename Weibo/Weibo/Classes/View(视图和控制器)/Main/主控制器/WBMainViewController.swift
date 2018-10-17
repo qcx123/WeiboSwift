@@ -64,6 +64,9 @@ extension WBMainViewController {
             print("有\(count)条未读消息")
             // 设置首页tabbarItems的badgeNumber
             self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
+            
+            // 设置app的badgeNumber
+            UIApplication.shared.applicationIconBadgeNumber = count
         }
     }
 }
