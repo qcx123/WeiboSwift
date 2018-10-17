@@ -14,12 +14,17 @@ extension WBNetworkManager {
     
     
     /// 加载微博的网络请求方法
-    ///
-    /// - Parameter completion: 完成回调
-    func statusList(completion:@escaping (_ list: [[String :AnyObject]]?,_ isSuccess: Bool)->()) {
+    /// - Parameters:
+    ///   - since_id: 返回id比since_id大的微博（即比since_id时间晚的微博，下拉刷新用到）默认是0
+    ///   - max_id: 返回id小于或等于max_id的微博，默认是0
+    ///   - completion: 完成回调
+    func statusList(since_id: Int64 = 0, max_id: Int64 = 0, completion:@escaping (_ list: [[String :AnyObject]]?,_ isSuccess: Bool)->()) {
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
+        // Swift 中Int可以转成AnyObject/ 但是Int64不行
+//        let params = ["since_id" : "\(since_id)"]
+        let params = ["since_id" : since_id, "max_id": max_id]
         
-        tokenRequest(URLString: urlString, parameters: nil) { (json, isSuccess) in
+        tokenRequest(URLString: urlString, parameters: params as [String : AnyObject]) { (json, isSuccess) in
             // 从json获取statuses数组，如果失败就是nil
             let result = json?["statuses"] as? [[String : AnyObject]]
             
