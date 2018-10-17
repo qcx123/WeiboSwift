@@ -19,13 +19,15 @@ class WBHomeViewController: WBBaseViewController {
 
     override func loadData() {
         
-        listViewModel.loadStatus(pullup: self.isPullup) { (isSuccess) in
+        listViewModel.loadStatus(pullup: self.isPullup) { (isSuccess,shouldRefresh) in
             // 结束刷新
             self.refreshControl?.endRefreshing()
             // 恢复上拉刷新标记
             self.isPullup = false
-            // 刷新
-            self.tableView?.reloadData()
+            if shouldRefresh {
+                // 刷新
+                self.tableView?.reloadData()
+            }
         }
     }
     
