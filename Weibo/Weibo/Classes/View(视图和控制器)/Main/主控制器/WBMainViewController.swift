@@ -27,6 +27,8 @@ class WBMainViewController: UITabBarController {
         setupComposeButton()
         setupTimer()
         
+        // 设置代理
+        delegate = self
     }
     
     deinit {
@@ -46,6 +48,21 @@ class WBMainViewController: UITabBarController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+}
+
+extension WBMainViewController: UITabBarControllerDelegate {
+    
+    /// 将要选择的TabbarItem
+    ///
+    /// - Parameters:
+    ///   - tabBarController: tabBarController
+    ///   - viewController: 目标控制器
+    /// - Returns: 是否切换到目标控制器
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        print("将要切换到\(viewController)")
+        return !viewController.isMember(of: UIViewController.self)
     }
     
 }
