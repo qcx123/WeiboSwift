@@ -93,6 +93,11 @@ extension WBMainViewController {
     }
     
     @objc private func updateTimer() {
+        
+        if !WBNetworkManager.shared.userLogon {
+            return
+        }
+        
         // 未读数量
         WBNetworkManager.shared.unreadCount { (count) in
             print("有\(count)条未读消息")

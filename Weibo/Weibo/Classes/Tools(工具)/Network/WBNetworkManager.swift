@@ -29,6 +29,12 @@ class WBNetworkManager: AFHTTPSessionManager {
     // 用户微博id
     var uid: String? = "5162097553"
     
+    // 用户登录标记（计算型属性）
+    var userLogon : Bool {
+        return accessToken != nil
+    }
+    
+    
     // 专门拼接 token 的网络请求方法
     func tokenRequest(method: WBHTTPMethod = .GET, URLString: String, parameters: [String : AnyObject]?, completion: @escaping (_ json: AnyObject?, _ isSuccess: Bool) -> Void) {
         

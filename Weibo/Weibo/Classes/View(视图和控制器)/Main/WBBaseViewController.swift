@@ -19,7 +19,6 @@ import UIKit
 
 class WBBaseViewController: UIViewController {
 
-    var userLogon = true
     var visitorInfo : [String : String]?
     
     
@@ -42,7 +41,8 @@ class WBBaseViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        loadData()
+        
+        WBNetworkManager.shared.userLogon ? loadData() : ()
         // Do any additional setup after loading the view.
     }
 
@@ -79,7 +79,7 @@ extension WBBaseViewController {
         automaticallyAdjustsScrollViewInsets = false
         
         setupNavigationBar()
-        userLogon ? setupTableView() : setupVisitorView()
+        WBNetworkManager.shared.userLogon ? setupTableView() : setupVisitorView()
     }
     
     @objc func setupTableView() {
