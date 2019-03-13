@@ -62,6 +62,23 @@ extension WBMainViewController: UITabBarControllerDelegate {
     /// - Returns: 是否切换到目标控制器
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         print("将要切换到\(viewController)")
+        
+        // 1> 获取控制器在数组中的索引
+//        let index = (viewControllers as! NSArray).index(of: UIViewController())
+        let index = (childViewControllers as NSArray).index(of: viewController)
+        // 2> 判断q当前索引是首页，同事index也是首页，重复点击首页b按钮
+        if selectedIndex == 0 && index == selectedIndex {
+            print("点击了首页")
+            // 3> 让表格滚动到顶部
+            let nav = childViewControllers[0] as! UINavigationController
+            let vc = nav.childViewControllers[0] as! WBHomeViewController
+            vc.tableView?.setContentOffset(CGPoint(x: 0, y: -64), animated: true)
+            // 4> 刷新表格 -- 增加延迟，是保证表格先滚动到顶部再刷新
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                vc.loadData()
+            }
+        }
+        
         return !viewController.isMember(of: UIViewController.self)
     }
     
@@ -82,7 +99,7 @@ extension WBMainViewController {
             // 设置首页tabbarItems的badgeNumber
             self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
             
-            // 设置app的badgeNumber
+            // 设置app的badgeNumber，需要授权才能显示
             UIApplication.shared.applicationIconBadgeNumber = count
         }
     }
@@ -100,8 +117,8 @@ extension WBMainViewController {
         tabBar.addSubview(composeBtn)
         // 计算高度
         let count = CGFloat(childViewControllers.count)
-        // 向内缩进的宽度减少，能够让按钮的宽度变大，盖住容错点
-        let w = tabBar.bounds.width / count - 1
+        // 向内缩进的宽度
+        let w = tabBar.bounds.width / count
         composeBtn.frame = CGRect(x: 0, y: 0, width: w, height: tabBar.bounds.height)
         composeBtn.frame = tabBar.bounds.insetBy(dx: 2 * w, dy: 0)// 缩紧
         
