@@ -48,6 +48,9 @@ class WBMainViewController: UITabBarController {
     
     @objc private func userLogin(n: Notification) {
         print("用户登录通知\(n)")
+        // 展现登录控制器
+        let vc = UINavigationController(rootViewController: WBOAuthViewController())
+        present(vc, animated: true, completion: nil)
     }
     
     private lazy var composeBtn : UIButton = UIButton.init(imageName: "tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
