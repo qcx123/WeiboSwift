@@ -21,6 +21,7 @@
 		4461F696214102560051E942 /* WBDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461F695214102560051E942 /* WBDemoViewController.swift */; };
 		4461F6B621549DFE0051E942 /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461F6B521549DFE0051E942 /* WBVisitorView.swift */; };
 		4461F6BD216DFB610051E942 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 4461F6BC216DFB610051E942 /* main.json */; };
+		446A2661223A2E3800DDE95F /* WBCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446A2660223A2E3800DDE95F /* WBCommon.swift */; };
 		44C6F043217495C8009FA80C /* UIScreen+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6F039217495C8009FA80C /* UIScreen+Extentions.swift */; };
 		44C6F044217495C8009FA80C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6F03B217495C8009FA80C /* UIButton+Extension.swift */; };
 		44C6F045217495C8009FA80C /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6F03C217495C8009FA80C /* UIView+Frame.m */; };
@@ -52,6 +53,7 @@
 		4461F695214102560051E942 /* WBDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDemoViewController.swift; sourceTree = "<group>"; };
 		4461F6B521549DFE0051E942 /* WBVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
 		4461F6BC216DFB610051E942 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		446A2660223A2E3800DDE95F /* WBCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBCommon.swift; sourceTree = "<group>"; };
 		44C6F039217495C8009FA80C /* UIScreen+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extentions.swift"; sourceTree = "<group>"; };
 		44C6F03A217495C8009FA80C /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
 		44C6F03B217495C8009FA80C /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			children = (
 				441C6465217496510060CF75 /* Network */,
 				44C6F038217495C8009FA80C /* Extension */,
+				446A2660223A2E3800DDE95F /* WBCommon.swift */,
 			);
 			path = "Tools(工具)";
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				44C6F049217495C8009FA80C /* UIColor+Extension.m in Sources */,
 				44C6F044217495C8009FA80C /* UIButton+Extension.swift in Sources */,
 				44C6F048217495C8009FA80C /* Bundle+Extentions.swift in Sources */,
+				446A2661223A2E3800DDE95F /* WBCommon.swift in Sources */,
 				44C6F046217495C8009FA80C /* UILabel+Extentions.swift in Sources */,
 				44FFA68F2175D4AC00D58A6E /* WBNetworkManager+Extension.swift in Sources */,
 				441C6467217496CD0060CF75 /* WBNetworkManager.swift in Sources */,

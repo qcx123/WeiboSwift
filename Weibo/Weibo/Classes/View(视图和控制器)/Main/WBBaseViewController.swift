@@ -59,10 +59,12 @@ class WBBaseViewController: UIViewController {
     
 }
 
+// MARK: - 访客视图监听方法
 extension WBBaseViewController {
     
     @objc private func login() {
         print("用户登录")
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: nil)
     }
     
     @objc private func register() {
@@ -174,3 +176,6 @@ extension WBBaseViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 }
+
+
+
